@@ -33,7 +33,7 @@ const Tuotteet = [
     },
     {
         "id": 5,
-        "nimi" : "Sega",
+        "nimi" : "Sega 16-BIT",
         "hinta" : 60,
         "alehinta" : 55,
         "kuva" : "./images/sega.jpg",

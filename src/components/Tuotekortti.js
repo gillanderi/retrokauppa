@@ -12,15 +12,11 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Tuotteet from './Tuotteet';
 import { useState } from 'react';
 
-function Tuotekortti (){
+function Tuotekortti ({setvalitutTuotteet,valitutTuotteet,setTuotemaara,tuoteMaara,summa,setSumma}){
 
     const [valittuNimi, setValittunimi] =useState();
     const [valittuTieto, setValittutieto] =useState();
     const [open, setOpen] = useState(false);
-
-    const handleClickOpen = () => {
-        setOpen(true);
-    };
 
     const handleClose = () => {
         setOpen(false);
@@ -58,7 +54,21 @@ function Tuotekortti (){
         
       </CardContent>
       <CardActions>
-        <Button variant="contained" size="small">Osta</Button>
+        <Button variant="contained" size="small"
+        onClick={ ()=>{
+          let ostosapu ={
+            id: tuote.id,
+            nimi : tuote.nimi,
+            hinta : tuote.hinta,
+            kuva : tuote.kuva,
+          }
+          setvalitutTuotteet([...valitutTuotteet,ostosapu]);
+          setTuotemaara(tuoteMaara+1);
+          setSumma(summa+tuote.hinta);
+          
+          
+      }}
+        >Osta</Button>
         <Button size="small" onClick={ ()=>{
             setOpen (true);
             setValittunimi (tuote.nimi);
