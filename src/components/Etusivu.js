@@ -10,7 +10,7 @@ function Etusivu() {
   const [summa, setSumma] = useState(0);
   const [apuHinta, setapuHinta] = useState(0);
 
-  useEffect(() => {
+  /*useEffect(() => {
     laskeSumma();
   }, [tuoteMaara]);
 
@@ -21,6 +21,10 @@ function Etusivu() {
     });
     setSumma(tulos);
   };
+  */
+  useEffect(() => {
+    setSumma(valitutTuotteet.reduce((total, cur) => total + cur.hinta, 0));
+  }, [valitutTuotteet]);
 
   return (
     <div>
@@ -35,7 +39,6 @@ function Etusivu() {
             setTuotemaara={setTuotemaara}
             summa={summa}
             setSumma={setSumma}
-            laskeSumma={laskeSumma}
             apuHinta={apuHinta}
             setapuHinta={setapuHinta}
           />

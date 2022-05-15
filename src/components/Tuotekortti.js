@@ -70,7 +70,6 @@ function Tuotekortti({
                     };
                     setvalitutTuotteet([...valitutTuotteet, ostosapu]);
                     setTuotemaara(tuoteMaara + 1);
-                    laskeSumma();
                   }}
                 >
                   Osta
